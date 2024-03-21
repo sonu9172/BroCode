@@ -1,5 +1,5 @@
 import { useState } from "react";
-import './Order.css';
+import "./Order.css";
 
 function Inventory() {
   const [price, setPrice] = useState(0);
@@ -56,12 +56,13 @@ function Inventory() {
 
   return (
     <div class="container-fluid bg-2 text-center">
-      <h1 align='center'>Update the Stock</h1>
+      <h1 align="center">Update the Stock</h1>
       <br />
       <div class="row">
         <div class="col-sm-8">
           <table class="table table-bordered">
-            <h3 align="left"> Add Products </h3><br />
+            <h3 align="left"> Add Products </h3>
+            <br />
             <tr className="row-1">
               <th>Product Name</th>
               <th>Price</th>

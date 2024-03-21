@@ -1,28 +1,56 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
-* {
-  padding: 0px;
-  margin: 0px;
-  box-sizing: border-box;
+.container-fluid {
+  width: 100%;
 }
 
 .container-fluid h1 {
-    margin-top: 10px;
-    display: flex;
-    padding-left: 30%;
-    align-items: center;
-    justify-content: center;
-    color: lightcoral;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.container-fluid .row {
-   padding-left: 25%;
+
+.text-center {
+  text-align: center;
 }
-.container-fluid h3 {
-    color: blueviolet;
-    font-size: 20px;
-    font-weight: 600;
+
+.row {
+  margin-top: 20px; /* Adjust margin as needed */
 }
-.row .row-1 {
-    color: black;
-    
+
+.table-bordered {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #ddd; /* Change border color as needed */
+  padding: 8px; /* Adjust padding as needed */
+  text-align: left;
+}
+
+.table-bordered th {
+  background-color: #f2f2f2; /* Change background color as needed */
+}
+
+.form-control {
+  width: calc(100% - 10px); /* Adjust input width as needed */
+  margin-right: 5px; /* Adjust margin as needed */
+}
+
+.btn-success {
+  background-color: #4caf50; /* Change button color as needed */
+  color: white;
+  padding: 10px 20px; /* Adjust padding as needed */
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-success:hover {
+  background-color: #45a049; /* Change button hover color as needed */
+}
+
+.col-sm-8,
+.col-sm-4 {
+  padding: 0 15px; /* Adjust padding as needed */
 }

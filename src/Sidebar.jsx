@@ -42,19 +42,16 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
             </li>
             <li className='sidebar-list-item'>
                 <a href="">
-                    <BsPeopleFill className='icon'/> Customers
+                    <BsListCheck className='icon'/> Inventory
                 </a>
             </li>
             <li className='sidebar-list-item'>
                 <a href="">
-                    <BsListCheck className='icon'/> Inventory
+                    <BsPeopleFill className='icon'/> About Us
                 </a>
             </li>
-            {/* <li className='sidebar-list-item'>
-                <a href="">
-                    <BsMenuButtonWideFill className='icon'/> Reports
-                </a>
-            </li> */}
+            
+            
             <li className='sidebar-list-item'>
                 <a href="">
                     <LiaSignOutAltSolid className='icon'/> SignOut
