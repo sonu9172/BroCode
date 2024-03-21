@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.container-fluid h1 {
+    margin-top: 10px;
+    display: flex;
+    padding-left: 30%;
+    align-items: center;
+    justify-content: center;
+    color: lightcoral;
+}
+.container-fluid .row {
+   padding-left: 25%;
+}
+.container-fluid h3 {
+    color: blueviolet;
+    font-size: 20px;
+    font-weight: 600;
+}
+.row .row-1 {
+    color: black;
+    
+}
