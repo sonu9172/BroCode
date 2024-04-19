@@ -1,0 +1,14 @@
+[
+    {
+        "product":"Pens",
+        "stock":20
+    },
+    {
+        "product":"Pencils",
+        "stock":40
+    },
+    {
+        "product":"Erasers",
+        "stock":60
+    }
+]

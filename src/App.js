@@ -4,10 +4,11 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Home from "./Home";
 import Order from "./Order";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes,withRouter } from "react-router-dom";
 import Contact from "./Contact";
 import "./Contact.css";
-import styled from "styled-components";
+import Table3 from "./Itemview";
+import Inventory from "./Order.jsx";
 
 function App() {
   const [openSidebarToggle,setOpenSidebarToggle] = useState(false);
@@ -28,7 +29,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/order" element={<Order />} />
         <Route path="/contact" element={<Contact />} />
-        
+        <Route path="/item/view" element={<Table3/>} />
+        <Route path="/item/update" element={<Inventory/>} />
+
         
         
       </Routes>
