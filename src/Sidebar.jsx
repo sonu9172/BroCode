@@ -63,7 +63,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
           )}
         </li>
         <li className="sidebar-list-item">
-          <Link href="/contact">
+          <Link href="./About">
             <BsPeopleFill className="icon" /> About Us
           </Link>
         </li>
