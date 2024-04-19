@@ -40,8 +40,8 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
         </li>
 
         <li className="sidebar-list-item">
-          <Link to="/Table">
-            <BsFillGrid3X3GapFill className="icon" /> Categories
+          <Link to="/Project">
+            <BsFillGrid3X3GapFill className="icon" />Find Your Stock
           </Link>
         </li>
         <li className="sidebar-list-item">

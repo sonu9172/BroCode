@@ -11,6 +11,9 @@ import Table3 from "./Itemview";
 import Inventory from "./Order.jsx";
 import AboutUs from "./About.jsx";
 import "./About.css";
+import Project from "./Project.jsx";
+// import LoginV from "./LoginVisual.jsx";
+
 
 function App() {
   const [openSidebarToggle,setOpenSidebarToggle] = useState(false);
@@ -34,6 +37,8 @@ function App() {
         <Route path="/item/view" element={<Table3/>} />
         <Route path="/About" element={<AboutUs/>} />
         <Route path="/item/update" element={<Inventory/>} />
+        <Route path="/Project" element={<Project/>} />
+        {/* <Route path="/admin" element={<LoginV/>} /> */}
 
         
         
