@@ -243,3 +243,10 @@ body {
 }
 
 /* toggle button ended  */
+
+.h2{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  color: aquamarine;
+}
