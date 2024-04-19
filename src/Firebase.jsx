@@ -4,15 +4,15 @@ import { getAuth} from 'firebase/auth';
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAkkpkhJNlD05OHTtuFGkYd68oV6fyX9N4",
-    authDomain: "login-bc851.firebaseapp.com",
-    projectId: "login-bc851",
-    storageBucket: "login-bc851.appspot.com",
-    messagingSenderId: "48933473507",
-    appId: "1:48933473507:web:f70b183ad5a346ec8149d6",
-    measurementId: "G-KY35QDL5B5",
-    databaseURL: "https://login-bc851-default-rtdb.firebaseio.com"
-  };
+  apiKey: "AIzaSyB7_Rivt7lDit-czX02DzjbG09uMq8BPME",
+  authDomain: "brocode-c596b.firebaseapp.com",
+  databaseURL: "https://brocode-c596b-default-rtdb.firebaseio.com",
+  projectId: "brocode-c596b",
+  storageBucket: "brocode-c596b.appspot.com",
+  messagingSenderId: "906505549677",
+  appId: "1:906505549677:web:cd5c35bb586e0c40218c64",
+  measurementId: "G-YT3RLQMVTW"
+};
 
   export const app=initializeApp(firebaseConfig);
   export  const auth = getAuth(app);

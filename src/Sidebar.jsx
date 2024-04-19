@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaSignInAlt } from "react-icons/fa";
 import {
   BsCart3,
   BsGrid1X2Fill,
@@ -9,7 +10,7 @@ import {
 import { LiaSignOutAltSolid } from "react-icons/lia";
 import { IoMdContact } from "react-icons/io";
 import { Link } from "react-router-dom";
-import "./Sidebar.css"
+import "./Sidebar.css";
 
 function Sidebar({ openSidebarToggle, OpenSidebar }) {
   const [productDropdownOpen, setProductDropdownOpen] = useState(false);
@@ -41,7 +42,8 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
 
         <li className="sidebar-list-item">
           <Link to="/Project">
-            <BsFillGrid3X3GapFill className="icon" />Find Your Stock
+            <BsFillGrid3X3GapFill className="icon" />
+            Find Your Stock
           </Link>
         </li>
         <li className="sidebar-list-item">
@@ -71,6 +73,11 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
         <li className="sidebar-list-item">
           <Link to="/contact">
             <IoMdContact className="icon" /> Contact Us
+          </Link>
+        </li>
+        <li className="sidebar-list-item">
+          <Link to="/LoginV">
+            <FaSignInAlt className="icon" /> SignIn
           </Link>
         </li>
         <li className="sidebar-list-item">

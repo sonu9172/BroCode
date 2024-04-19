@@ -1,5 +1,6 @@
 // LoginV.jsx
 import React, { useState } from "react";
+import "./LoginVisual.css";
 
 function LoginV() {
   const [username, setUsername] = useState("");
@@ -18,7 +19,7 @@ function LoginV() {
 
   if (loggedIn) {
     // Redirect to the Home component or any other component upon successful login
-    return <div>You are logged in!</div>;
+    return alert("Your are Logged In");
   }
 
   return (
