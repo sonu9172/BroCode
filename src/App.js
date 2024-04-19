@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
@@ -12,7 +12,7 @@ import Inventory from "./Order.jsx";
 import AboutUs from "./About.jsx";
 import "./About.css";
 import Project from "./Project.jsx";
-// import LoginV from "./LoginVisual.jsx";
+import LoginV from "./LoginVisual.jsx";
 
 
 function App() {
@@ -31,14 +31,14 @@ function App() {
         OpenSidebar={OpenSidebar}
       />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LoginV/>} />
+        <Route path="/homeheader" element={<Home />} />
         <Route path="/order" element={<Order />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/item/view" element={<Table3/>} />
         <Route path="/About" element={<AboutUs/>} />
         <Route path="/item/update" element={<Inventory/>} />
         <Route path="/Project" element={<Project/>} />
-        {/* <Route path="/admin" element={<LoginV/>} /> */}
 
         
         

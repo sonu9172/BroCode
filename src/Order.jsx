@@ -47,7 +47,7 @@ function Inventory() {
       <div className="row">
         <div className="col-sm-8">
           <table className="table table-bordered">
-            <h3 align="left"> Add Products </h3>
+            <h3 className="title2"> Add Products </h3>
             <br />
             <tr className="row-1">
               <th>Product Name</th>
