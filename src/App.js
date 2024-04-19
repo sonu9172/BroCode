@@ -9,6 +9,8 @@ import Contact from "./Contact";
 import "./Contact.css";
 import Table3 from "./Itemview";
 import Inventory from "./Order.jsx";
+import AboutUs from "./About.jsx";
+import "./About.css";
 
 function App() {
   const [openSidebarToggle,setOpenSidebarToggle] = useState(false);
@@ -30,6 +32,7 @@ function App() {
         <Route path="/order" element={<Order />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/item/view" element={<Table3/>} />
+        <Route path="/About" element={<AboutUs/>} />
         <Route path="/item/update" element={<Inventory/>} />
 
         
