@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BsCart3,
   BsGrid1X2Fill,
-  BsFillArchiveFill,
   BsFillGrid3X3GapFill,
   BsPeopleFill,
   BsListCheck,
@@ -10,9 +9,14 @@ import {
 import { LiaSignOutAltSolid } from "react-icons/lia";
 import { IoMdContact } from "react-icons/io";
 import { Link } from "react-router-dom";
+import "./Sidebar.css"
 
 function Sidebar({ openSidebarToggle, OpenSidebar }) {
- 
+  const [productDropdownOpen, setProductDropdownOpen] = useState(false);
+
+  const toggleProductDropdown = () => {
+    setProductDropdownOpen(!productDropdownOpen);
+  };
 
   return (
     <aside
@@ -41,9 +45,22 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
           </Link>
         </li>
         <li className="sidebar-list-item">
-          <Link to="/order">
+          <a href="#" onClick={toggleProductDropdown}>
             <BsListCheck className="icon" /> Products
-          </Link>
+          </a>
+          {productDropdownOpen && (
+            <ul className="submenu">
+              <li>
+                <Link to="/item/view">Item View</Link>
+              </li>
+              <li>
+                <Link to="/item/update">Item Update</Link>
+              </li>
+              <li>
+                <Link to="/item/categories">Item Categories</Link>
+              </li>
+            </ul>
+          )}
         </li>
         <li className="sidebar-list-item">
           <Link href="/contact">
