@@ -122,7 +122,7 @@ function Inventory() {
               </td>
             </tr>
           </table>
-          <h3 align="left"> Products </h3>
+          <h3 align="left"> History </h3>
           <table class="table table-bordered">
             <thead>
               <tr>
