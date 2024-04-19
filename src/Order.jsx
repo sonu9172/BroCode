@@ -1,31 +1,13 @@
-import { useState } from "react";
-import "./Order.css";
+import React, { useState } from "react";
+import Table3 from "./Itemview.jsx"; // Import Table3 component
 
 function Inventory() {
+  const [users, setUsers] = useState([]);
+  const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [qty, setQty] = useState(0);
+  const [sum, setSum] = useState(0);
   const [total, setTotal] = useState(0);
-
-  const [users] = useState([]);
-  const [name, setName] = useState();
-
-  const [sum, setSum] = useState();
-
-  function Calculation() {
-    users.push({ name, qty, price, sum });
-
-    const total = users.reduce((total, user) => {
-      total += Number(user.sum);
-      return total;
-    }, 0);
-    // you want this
-    setTotal(total);
-    // Clear the input fields
-    setName("");
-    setQty("");
-    setPrice("");
-    setSum("");
-  }
 
   const handlePriceChange = (e) => {
     const newPrice = parseFloat(e.target.value);
@@ -35,7 +17,6 @@ function Inventory() {
     }
   };
 
-  // Event handler for quantity selection
   const handleQuantityChange = (e) => {
     const newQuantity = parseInt(e.target.value);
     if (!isNaN(newQuantity)) {
@@ -44,23 +25,32 @@ function Inventory() {
     }
   };
 
-  // Calculate the total based on price and quantity
   const calculateTotal = (price, qty) => {
     const newTotal = price * qty;
     setSum(newTotal);
   };
 
-  function refreshPage() {
+  const Calculation = () => {
+    const newUser = { name, qty, price, sum };
+    setUsers([...users, newUser]);
+    setTotal(total + sum);
+    setName("");
+    setQty(0);
+    setPrice(0);
+    setSum(0);
+  };
+
+  const refreshPage = () => {
     window.location.reload();
-  }
+  };
 
   return (
-    <div class="container-fluid bg-2 text-center">
+    <div className="container-fluid bg-2 text-center">
       <h1 align="center">Update the Stock</h1>
       <br />
-      <div class="row">
-        <div class="col-sm-8">
-          <table class="table table-bordered">
+      <div className="row">
+        <div className="col-sm-8">
+          <table className="table table-bordered">
             <h3 align="left"> Add Products </h3>
             <br />
             <tr className="row-1">
@@ -74,7 +64,7 @@ function Inventory() {
               <td>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Item Name"
                   value={name}
                   onChange={(event) => {
@@ -85,7 +75,7 @@ function Inventory() {
               <td>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Enter Price"
                   value={price}
                   onChange={handlePriceChange}
@@ -94,7 +84,7 @@ function Inventory() {
               <td>
                 <input
                   type="number"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Enter Qty"
                   value={qty}
                   onChange={handleQuantityChange}
@@ -104,7 +94,7 @@ function Inventory() {
                 <input
                   type="text"
                   value={sum}
-                  class="form-control"
+                  className="form-control"
                   placeholder="Enter Total"
                   id="total_cost"
                   name="total_cost"
@@ -113,7 +103,7 @@ function Inventory() {
               </td>
               <td>
                 <button
-                  class="btn btn-success"
+                  className="btn btn-success"
                   type="submit"
                   onClick={Calculation}
                 >
@@ -122,46 +112,28 @@ function Inventory() {
               </td>
             </tr>
           </table>
-          <h3 align="left"> Products </h3>
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>Item Name</th>
-
-                <th>Price</th>
-                <th>Qty</th>
-                <th>Amount</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {users.map((row, index) => (
-                <tr key={index}>
-                  <td>{row.name}</td>
-                  <td>{row.price}</td>
-
-                  <td>{row.qty}</td>
-                  <td>{row.sum}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <h3 align="left"> History </h3>
+          <Table3 items={users} /> {/* Pass 'users' data as prop to Table3 */}
         </div>
 
-        <div class="col-sm-4">
-          <div class="form-group" align="left">
+        <div className="col-sm-4">
+          <div className="form-group" align="left">
             <h3>Total</h3>
 
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               placeholder="Enter Total"
               required
               disabled
               value={total}
             />
             <br />
-            <button type="button" class="btn btn-success" onClick={refreshPage}>
+            <button
+              type="button"
+              className="btn btn-success"
+              onClick={refreshPage}
+            >
               {" "}
               <span>Complete</span>{" "}
             </button>
