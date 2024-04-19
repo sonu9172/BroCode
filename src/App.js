@@ -29,9 +29,6 @@ function App() {
         <Route path="/order" element={<Order />} />
         <Route path="/contact" element={<Contact />} />
         
-        
-        
-        
       </Routes>
     </div>
   );
