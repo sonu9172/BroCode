@@ -1,19 +1,17 @@
 import React, { useState } from "react";
-import Table3 from "./Itemview.jsx"; // Import Table3 component
+import Table3 from "./Itemview.jsx";
 
 function Inventory() {
   const [users, setUsers] = useState([]);
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [qty, setQty] = useState(0);
-  const [sum, setSum] = useState(0);
   const [total, setTotal] = useState(0);
 
   const handlePriceChange = (e) => {
     const newPrice = parseFloat(e.target.value);
     if (!isNaN(newPrice)) {
       setPrice(newPrice);
-      calculateTotal(newPrice, qty);
     }
   };
 
@@ -21,23 +19,21 @@ function Inventory() {
     const newQuantity = parseInt(e.target.value);
     if (!isNaN(newQuantity)) {
       setQty(newQuantity);
-      calculateTotal(price, newQuantity);
     }
   };
 
-  const calculateTotal = (price, qty) => {
-    const newTotal = price * qty;
-    setSum(newTotal);
+  const calculateTotal = () => {
+    return price * qty;
   };
 
-  const Calculation = () => {
+  const handleAddItem = () => {
+    const sum = calculateTotal();
     const newUser = { name, qty, price, sum };
     setUsers([...users, newUser]);
     setTotal(total + sum);
     setName("");
     setQty(0);
     setPrice(0);
-    setSum(0);
   };
 
   const refreshPage = () => {
@@ -93,7 +89,7 @@ function Inventory() {
               <td>
                 <input
                   type="text"
-                  value={sum}
+                  value={calculateTotal()}
                   className="form-control"
                   placeholder="Enter Total"
                   id="total_cost"
@@ -104,8 +100,8 @@ function Inventory() {
               <td>
                 <button
                   className="btn btn-success"
-                  type="submit"
-                  onClick={Calculation}
+                  type="button"
+                  onClick={handleAddItem}
                 >
                   Add
                 </button>
@@ -113,7 +109,7 @@ function Inventory() {
             </tr>
           </table>
           <h3 align="left"> History </h3>
-          <Table3 items={users} /> {/* Pass 'users' data as prop to Table3 */}
+          <Table3 items={users} />
         </div>
 
         <div className="col-sm-4">
