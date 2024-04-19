@@ -2,7 +2,7 @@
     /* display: grid; */
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 110vh;
     padding-top: 50px;
     padding-left: 80px;
   }
@@ -16,5 +16,15 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     max-width: 400px; /* Adjust as needed */
+  }
+  .project-box h2 {
+    padding-top: 10px;
+  }
+  .project-box button {
+    border-radius: 3px;
+    padding: 8px;
+    color: black;
+    border: none;
+    background-color: #007bff;
   }
   
