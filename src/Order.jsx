@@ -1,22 +1,24 @@
 import React, { useState } from "react";
 import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes } from 'firebase/storage';
 import Papa from "papaparse"; // Import Papaparse for CSV parsing
 import Table3 from "./Itemview.jsx";
 
 // Initialize Firebase app
 const firebaseConfig = {
-  apiKey: "AIzaSyB7_Rivt7lDit-czX02DzjbG09uMq8BPME",
-  authDomain: "brocode-c596b.firebaseapp.com",
-  databaseURL: "https://brocode-c596b-default-rtdb.firebaseio.com",
-  projectId: "brocode-c596b",
-  storageBucket: "brocode-c596b.appspot.com",
-  messagingSenderId: "906505549677",
-  appId: "1:906505549677:web:cd5c35bb586e0c40218c64",
-  measurementId: "G-YT3RLQMVTW",
+  apiKey: "your-api-key",
+  authDomain: "your-auth-domain",
+  databaseURL: "your-database-url",
+  projectId: "your-project-id",
+  storageBucket: "your-storage-bucket",
+  messagingSenderId: "your-sender-id",
+  appId: "your-app-id",
+  measurementId: "your-measurement-id",
 };
 
 const app = initializeApp(firebaseConfig);
+const firestore = getFirestore(app);
 const storage = getStorage(app);
 
 function Inventory() {
@@ -45,14 +47,23 @@ function Inventory() {
     return price * qty;
   };
 
-  const handleAddItem = () => {
+  const handleAddItem = async () => {
     const sum = calculateTotal();
     const newUser = { name, qty, price, sum };
-    setUsers([...users, newUser]);
-    setTotal(total + sum);
-    setName("");
-    setQty(0);
-    setPrice(0);
+
+    try {
+      // Add item to Firestore collection
+      const docRef = await addDoc(collection(firestore, 'items'), newUser);
+      console.log('Document written with ID: ', docRef.id);
+
+      setUsers([...users, newUser]);
+      setTotal(total + sum);
+      setName('');
+      setQty(0);
+      setPrice(0);
+    } catch (error) {
+      console.error('Error adding document: ', error);
+    }
   };
 
   const handleCsvUpload = async (event) => {
