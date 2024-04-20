@@ -1,6 +1,23 @@
 import React, { useState } from "react";
+import { initializeApp } from 'firebase/app';
+import { getStorage, ref, uploadBytes } from 'firebase/storage';
 import Papa from "papaparse"; // Import Papaparse for CSV parsing
 import Table3 from "./Itemview.jsx";
+
+// Initialize Firebase app
+const firebaseConfig = {
+  apiKey: "AIzaSyB7_Rivt7lDit-czX02DzjbG09uMq8BPME",
+  authDomain: "brocode-c596b.firebaseapp.com",
+  databaseURL: "https://brocode-c596b-default-rtdb.firebaseio.com",
+  projectId: "brocode-c596b",
+  storageBucket: "brocode-c596b.appspot.com",
+  messagingSenderId: "906505549677",
+  appId: "1:906505549677:web:cd5c35bb586e0c40218c64",
+  measurementId: "G-YT3RLQMVTW",
+};
+
+const app = initializeApp(firebaseConfig);
+const storage = getStorage(app);
 
 function Inventory() {
   const [users, setUsers] = useState([]);
@@ -38,18 +55,28 @@ function Inventory() {
     setPrice(0);
   };
 
-  const handleCsvUpload = (event) => {
+  const handleCsvUpload = async (event) => {
     const file = event.target.files[0];
-    Papa.parse(file, {
-      header: true,
-      complete: (result) => {
-        // Update inventory based on parsed CSV data
-        setInventory(result.data);
-      },
-      error: (error) => {
-        console.error('Error parsing CSV:', error);
-      }
-    });
+    const storageRef = ref(storage, `uploads/${file.name}`);
+    
+    try {
+      // Upload the file to Firebase Storage
+      await uploadBytes(storageRef, file);
+      console.log('File uploaded successfully.');
+      
+      // Parse the CSV file and update the inventory
+      Papa.parse(file, {
+        header: true,
+        complete: (result) => {
+          setInventory(result.data);
+        },
+        error: (error) => {
+          console.error('Error parsing CSV:', error);
+        }
+      });
+    } catch (error) {
+      console.error('Error uploading file:', error);
+    }
   };
 
   const refreshPage = () => {
