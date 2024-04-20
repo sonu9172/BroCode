@@ -13,6 +13,7 @@ import AboutUs from "./About.jsx";
 import "./About.css";
 import Project from "./Project.jsx";
 import LoginV from "./LoginVisual.jsx";
+import PlaceOrder from "./Ordersreal.jsx";
 
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
       />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/order" element={<Order />} />
+        <Route path="/Orders" element={<PlaceOrder />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/item/view" element={<Table3/>} />
         <Route path="/About" element={<AboutUs/>} />

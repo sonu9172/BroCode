@@ -97,7 +97,7 @@ function Inventory() {
               </td>
               <td>
                 <input
-                  type="number"
+                  type="text"
                   className="form-control"
                   placeholder="Enter Qty"
                   value={qty}
