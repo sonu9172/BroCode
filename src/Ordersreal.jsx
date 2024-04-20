@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Orderreal.css'; // Import CSS file for styling
 
 const PlaceOrder = () => {
   const [data, setData] = useState([]);
@@ -36,13 +37,13 @@ const PlaceOrder = () => {
   };
 
   return (
-    <div>
+    <div className="place-order-container"> {/* Apply CSS class for styling */}
       <h2>Place Order</h2>
-      <div>
+      <div className="form-group">
         <label>Item Name:</label>
         <input type="text" value={itemName} onChange={(e) => setItemName(e.target.value)} />
       </div>
-      <div>
+      <div className="form-group">
         <label>Quantity:</label>
         <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
       </div>
