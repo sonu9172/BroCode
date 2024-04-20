@@ -1,6 +1,6 @@
 /* CSS for Product Dropdown */
 .sidebar-list-item .submenu {
-    display: none;
+    display: flex;
     list-style-type: none;
     padding: 0;
     margin: 0;
