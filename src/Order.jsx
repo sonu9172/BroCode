@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Papa from 'papaparse'; // Import Papaparse for CSV parsing
+import Papa from "papaparse"; // Import Papaparse for CSV parsing
 import Table3 from "./Itemview.jsx";
 
 function Inventory() {
@@ -9,21 +9,6 @@ function Inventory() {
   const [qty, setQty] = useState(0);
   const [total, setTotal] = useState(0);
   const [inventory, setInventory] = useState([]);
-
-  // Function to handle file upload
-  const handleFileUpload = (event) => {
-    const file = event.target.files[0];
-    Papa.parse(file, {
-      header: true,
-      complete: (result) => {
-        // Update inventory based on parsed CSV data
-        setInventory(result.data);
-      },
-      error: (error) => {
-        console.error('Error parsing CSV:', error);
-      }
-    });
-  };
 
   const handlePriceChange = (e) => {
     const newPrice = parseFloat(e.target.value);
@@ -53,6 +38,20 @@ function Inventory() {
     setPrice(0);
   };
 
+  const handleCsvUpload = (event) => {
+    const file = event.target.files[0];
+    Papa.parse(file, {
+      header: true,
+      complete: (result) => {
+        // Update inventory based on parsed CSV data
+        setInventory(result.data);
+      },
+      error: (error) => {
+        console.error('Error parsing CSV:', error);
+      }
+    });
+  };
+
   const refreshPage = () => {
     window.location.reload();
   };
@@ -63,15 +62,18 @@ function Inventory() {
       <br />
       <div className="row">
         <div className="col-sm-8">
-          <table className="table table-bordered">
-            <h3 className="title2"> Add Products </h3>
+        <h3 className="title2"> Add Products </h3>
             <br />
-            <tr className="row-1">
-              <th>Product Name</th>
-              <th>Price</th>
-              <th>Qty</th>
-              <th>Total</th>
-            </tr>
+          <table className="table table-bordered">
+            <thead>
+              <tr>
+                <th>Product name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th></th>
+              </tr>
+            </thead>
             <tr>
               <td>
                 <input
@@ -86,7 +88,7 @@ function Inventory() {
               </td>
               <td>
                 <input
-                  type="number"
+                  type="text"
                   className="form-control"
                   placeholder="Enter Price"
                   value={price}
@@ -124,8 +126,11 @@ function Inventory() {
               </td>
             </tr>
           </table>
+          <h3 align="left"> Upload CSV </h3>
+          <input type="file" onChange={handleCsvUpload} accept=".csv" />
           <h3 align="left"> History </h3>
-          <Table3 items={users} />
+          {/* Display the singular entry update form */}
+          <Table3 items={[...users, ...inventory]} />
         </div>
 
         <div className="col-sm-4">
@@ -151,30 +156,6 @@ function Inventory() {
             </button>
           </div>
         </div>
-      </div>
-
-      {/* File upload component */}
-      <div>
-        <h3>Upload Inventory CSV</h3>
-        <input type="file" onChange={handleFileUpload} accept=".csv" />
-        {/* Display inventory data in a table */}
-        <h3>Current Inventory</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Item Name</th>
-              <th>Quantity</th>
-            </tr>
-          </thead>
-          <tbody>
-            {inventory.map((item, index) => (
-              <tr key={index}>
-                <td>{item.name}</td>
-                <td>{item.quantity}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
       </div>
     </div>
   );
