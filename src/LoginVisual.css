@@ -45,3 +45,11 @@
 .login-container button:hover {
   background-color: #0056b3;
 }
+
+.login-page{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin-top: 100px;
+}
