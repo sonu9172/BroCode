@@ -35,7 +35,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
 
       <ul className="sidebar-list">
         <li className="sidebar-list-item">
-          <a href="/">
+          <a href="/dashboards">
             <BsGrid1X2Fill className="icon" /> Dashboard
           </a>
         </li>
@@ -80,13 +80,13 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
             <IoMdContact className="icon" /> Contact Us
           </Link>
         </li>
-        <li className="sidebar-list-item">
-          <Link to="/LoginV">
+        {/* <li className="sidebar-list-item">
+          <Link to="">
             <FaSignInAlt className="icon" /> SignIn
           </Link>
-        </li>
+        </li> */}
         <li className="sidebar-list-item">
-          <a href="">
+          <a href="/LoginV">
             <LiaSignOutAltSolid className="icon" /> SignOut
           </a>
         </li>

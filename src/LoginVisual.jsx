@@ -21,7 +21,7 @@ function LoginV() {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Check if username and password match some predefined values
-    if (username === "admin" && password === "password") {
+    if (username === "admin" && password === "admin") {
       setLoggedIn(true);
     } else {
       alert("Incorrect username or password");
